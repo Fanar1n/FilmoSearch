@@ -12,7 +12,7 @@ namespace FilmoSearch.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ReviewController : Controller
+    public class ReviewController : ControllerBase
     {
         private readonly IReviewService _reviewService;
         private readonly IMapper _mapper;

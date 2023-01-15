@@ -39,7 +39,7 @@ namespace FilmoSearch.DAL.EF
 
             builder.Property(u => u.Description)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(150);
         }
     }
     public class ActorEntityFilmEntityConfiguration : IEntityTypeConfiguration<ActorEntityFilmEntity>
