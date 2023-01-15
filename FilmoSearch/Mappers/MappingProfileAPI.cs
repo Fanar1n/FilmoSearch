@@ -18,6 +18,7 @@ namespace FilmoSearch.API.Mappers
             CreateMap<ReviewViewModel, Review>().ReverseMap();
             CreateMap<ShortReviewViewModel, Review>().ReverseMap();
             CreateMap<ActorFilmsViewModel, ActorFilms>().ReverseMap();
+            CreateMap<ShortActorFilmsViewModel, ActorFilms>().ReverseMap();
         }
     }
 }

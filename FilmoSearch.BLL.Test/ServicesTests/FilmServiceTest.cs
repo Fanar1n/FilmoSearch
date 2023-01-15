@@ -57,7 +57,7 @@ namespace FilmoSearch.BLL.Test.ServicesTests
         }
 
         [Fact]
-        public async Task DeleteById_WhenHasData()
+        public Task DeleteById_WhenHasData()
         {
             var validFilm = ValidFilm.Film;
 
@@ -69,6 +69,7 @@ namespace FilmoSearch.BLL.Test.ServicesTests
             Action action = async () => await service.DeleteByIdAsync(validFilm.Id, default);
 
             action.ShouldNotThrow();
+            return Task.CompletedTask;
         }
 
         [Fact]

@@ -17,7 +17,7 @@ namespace FilmoSearch.API.Test.ControllerTests
         private readonly Mock<IMapper> _mapper = new();
 
         [Fact]
-        public async Task Create_WhenActorHasValidData_ReturnValidActor()
+        public void Create_WhenActorHasValidData_ReturnValidActor()
         {
             var validActor = ValidActor.Actor;
             var shortValidActorViewModel = ValidActorViewModel.ShortActorViewModel;
@@ -37,7 +37,7 @@ namespace FilmoSearch.API.Test.ControllerTests
         }
 
         [Fact]
-        public async Task Update_WhenActorHasValidData_ReturnValidActor()
+        public void Update_WhenActorHasValidData_ReturnValidActor()
         {
             var validActor = ValidActor.Actor;
             var validActorViewModel = ValidActorViewModel.ActorViewModel;
@@ -57,7 +57,7 @@ namespace FilmoSearch.API.Test.ControllerTests
         }
 
         [Fact]
-        public async Task DeleteById_WhenHasData()
+        public void DeleteById_WhenHasData()
         {
             var validActorViewModel = ValidActorViewModel.ActorViewModel;
 
@@ -73,7 +73,7 @@ namespace FilmoSearch.API.Test.ControllerTests
         }
 
         [Fact]
-        public async Task Get_WhenHasData_ReturnValidActor()
+        public void Get_WhenHasData_ReturnValidActor()
         {
             var validActor = ValidActor.Actor;
             var validActorViewModel = ValidActorViewModel.ActorViewModel;
@@ -86,13 +86,14 @@ namespace FilmoSearch.API.Test.ControllerTests
                 .ReturnsAsync(validActor);
 
             var service = new ActorController(_actorMoqService.Object, _mapper.Object);
+
             Action action = async () => await service.GetByIdAsync(validActorViewModel.Id, default);
 
             action.ShouldNotThrow();
         }
 
         [Fact]
-        public async Task GetAll_WhenHasData_ReturnValidListOfActors()
+        public void GetAll_WhenHasData_ReturnValidListOfActors()
         {
             var validActor = ValidActor.ListActor;
             var listValidActorViewModel = ValidActorViewModel.ListActorViewModel;
@@ -103,6 +104,7 @@ namespace FilmoSearch.API.Test.ControllerTests
                 .ReturnsAsync(validActor);
 
             var controller = new ActorController(_actorMoqService.Object, _mapper.Object);
+
             Action action = async () => await controller.GetAllAsync(default);
 
             action.ShouldNotThrow();

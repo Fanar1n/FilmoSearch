@@ -42,6 +42,20 @@ namespace FilmoSearch.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Actor");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Vlad",
+                            LastName = "Zagorsky"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FirstName = "Tyler",
+                            LastName = "Durden"
+                        });
                 });
 
             modelBuilder.Entity("FilmoSearch.DAL.Entities.ActorEntityFilmEntity", b =>
@@ -65,6 +79,20 @@ namespace FilmoSearch.DAL.Migrations
                     b.HasIndex("FilmId");
 
                     b.ToTable("ActorFilms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ActorId = 1,
+                            FilmId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ActorId = 2,
+                            FilmId = 1
+                        });
                 });
 
             modelBuilder.Entity("FilmoSearch.DAL.Entities.FilmEntity", b =>
@@ -88,7 +116,12 @@ namespace FilmoSearch.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            Title = "bbasqbash"
+                            Title = "Dirty Jerry"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "Alien"
                         });
                 });
 
@@ -121,6 +154,24 @@ namespace FilmoSearch.DAL.Migrations
                     b.HasIndex("FilmId");
 
                     b.ToTable("Review");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Remarkable film with fascinating characters",
+                            FilmId = 1,
+                            Stars = 5,
+                            Title = "Review for Dirty Jerry"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Vulgar movie with a bunch of flat jokes",
+                            FilmId = 1,
+                            Stars = 2,
+                            Title = "Review for Dirty Jerry"
+                        });
                 });
 
             modelBuilder.Entity("FilmoSearch.DAL.Entities.ActorEntityFilmEntity", b =>
